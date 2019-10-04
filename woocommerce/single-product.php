@@ -2,9 +2,9 @@
 defined('ABSPATH') or die("please don't runs scripts");
 /*
 * @file           single-product.php
-* @package        Social Magazine
+* @package        SocialMag
 * @author         ThemesMatic
-* @copyright      2015 ThemesMatic
+* @copyright      2019 ThemesMatic
 */
 get_header(); ?>
   
