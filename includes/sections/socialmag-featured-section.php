@@ -21,16 +21,21 @@
 	);
     
     // Enable Display of Featured Section Content
-    $wp_customize->add_setting( 'socialmag_featured_section_check', array(
-        'default'	=> 1,
-        'sanitize_callback'	=> 'socialmag_sanitize_checkbox',
+    $wp_customize->add_setting( 'socialmag_featured_section_choices', array(
+        'default'	=> 'featured-static',
+        'sanitize_callback'	=> 'socialmag_sanitize_featured_choices',
     ) );
 
-	$wp_customize->add_control( 'socialmag_featured_section_check', array(
+	$wp_customize->add_control( 'socialmag_featured_section_choices', array(
         'label'		=> esc_html__( 'Enable Display of Featured Content + Background Image', 'socialmag' ),
         'description' => esc_html__('De-Select to remove the Featured Header Content and show regular blog style.', 'socialmag'),
         'section'	=> 'socialmag_front_page_section',
-        'type'		=> 'checkbox',
+        'type'		=> 'radio',
+        'choices' 	=> array(
+	            'featured-slider'	=> esc_html__('Featured Slider', 'socialmag'),
+            	'featured-static'	=> esc_html__('Featured Static Image', 'socialmag'),
+            	'none'	=> esc_html__('None', 'socialmag'),
+            	),
         'priority'	=> 1
     ) );
     
@@ -64,7 +69,7 @@
         
     // Button URL
     $wp_customize->add_setting( 'socialmag_featured_button_url', array(
-        'default'        => '',
+        'default'        => '#front-layout',
         'sanitize_callback' => 'esc_url_raw',
     ) );
     
@@ -77,7 +82,7 @@
     
     // Button Text
     $wp_customize->add_setting( 'socialmag_button_text_setting', array(
-        'default'        => '',
+        'default'        => 'Read More',
         'sanitize_callback' => 'sanitize_text_field',
         'transport' => 'postMessage',
     ) );

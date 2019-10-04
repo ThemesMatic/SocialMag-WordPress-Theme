@@ -101,11 +101,4 @@
 		},
 		'fallback_refresh' => true,
 	) );
-	$wp_customize->selective_refresh->add_partial( 'socialmag_themesmatic_icon_size', array(
-		'selector' => 'ul.social-wrap',
-		'settings' => 'socialmag_themesmatic_icon_size',
-		'render_callback' => function() {
-			return absint( get_theme_mod('socialmag_themesmatic_icon_size') );
-		},
-		'fallback_refresh' => true,
-	) );
+	

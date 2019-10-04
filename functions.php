@@ -7,12 +7,12 @@ defined('ABSPATH') or die("please don't run scripts");
 * @package        SocialMag
 * @author         ThemesMatic
 * @copyright      2017 ThemesMatic
-*/	
+*/
 
 function socialmag_styles() {
 	wp_enqueue_style( 'bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
+	wp_enqueue_style( 'fontawesome', get_template_directory_uri() . '/css/all.min.css');
 	wp_enqueue_style( 'socialmag_style', get_stylesheet_uri());
-	wp_enqueue_style( 'font_awesome', get_template_directory_uri() . '/css/font-awesome.min.css');
 	if ( class_exists('WooCommerce') ):
 		wp_enqueue_style( 'socialmag_custom_woocommerce', get_template_directory_uri() . '/woocommerce/css/custom-woocommerce.css');
 	endif;
@@ -26,7 +26,9 @@ function socialmag_styles() {
 		wp_enqueue_style( 'socialmag_customizer_style', get_template_directory_uri() . '/css/theme-customizer-preview.css');
 	endif;
 
-	if ( get_theme_mod('socialmag_body_font_style_url', 'https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700,800') != '' ):
+	if ( get_theme_mod('socialmag_body_font_style_url', '') == '' ):
+		wp_enqueue_style( 'socialmag_default_font', esc_url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,700,800') );
+	else:
 		wp_enqueue_style( 'socialmag_body_font', esc_url( get_theme_mod('socialmag_body_font_style_url') ) );
 	endif;
 	if ( get_theme_mod('socialmag_headings_font_style_url', '') != '' || get_theme_mod('socialmag_headings_font_style_url') != get_theme_mod('socialmag_body_font_style_url') ):
@@ -36,9 +38,6 @@ function socialmag_styles() {
 add_action( 'wp_enqueue_scripts', 'socialmag_styles' );
 
 function socialmag_scripts() {
-	if ( is_front_page() || is_home() || is_category() ) {
-		wp_enqueue_script( 'salvattore', get_stylesheet_directory_uri() . '/js/salvattore.min.js', array( 'jquery' ), '1.0.9', true);
-	}
 	wp_enqueue_script( 'bootstrap', get_stylesheet_directory_uri() . '/js/bootstrap.min.js', array( 'jquery' ), '1.11.1', true);
 	wp_enqueue_script( 'socialmag_js', get_stylesheet_directory_uri() . '/js/socialmag.js', array( 'jquery' ), '1.11.1', true);
 	
@@ -54,14 +53,19 @@ function socialmag_widgets() {
 }
 add_action( 'widgets_init', 'socialmag_widgets' );
 
-// adds SocialMag customizations to the WP Theme Customizer
+// Adds SocialMag customizations to the WP Theme Customizer
 require get_parent_theme_file_path( '/includes/socialmag-customizer.php' );
 
-// adds SocialMag visit us widget
+// Adds SocialMag visit us widget
 require get_parent_theme_file_path( '/widgets/socialmag-visit-us-widget.php' );
 
 // Enable Comments, Pingbacks and Trackbacks
 require get_template_directory() . '/includes/socialmag_comments.php';
+
+// Adds Admin Notice and Welcome Page
+if( is_admin() ): 
+require get_parent_theme_file_path( 'includes/welcome/socialmag-admin.php' );
+endif;
 
 // allows only users who can edit theme options to create/edit menus as a security measure             
 function themesmatic_menu_fallback() {
@@ -73,42 +77,38 @@ function themesmatic_menu_fallback() {
 }
 
 if ( ! function_exists( 'socialmag_setup' ) ) :
-/**
-* Sets up theme defaults and registers support for various WordPress features.
-*
-* Note that this function is hooked into the after_setup_theme hook, which
-* runs before the init hook. The init hook is too late for some features, such
-* as indicating support for post thumbnails.
-*/
+
+// Sets up theme defaults and registers support for various WordPress features.
+// Note that this function is hooked into the after_setup_theme hook, which
+// runs before the init hook. The init hook is too late for some features, such
+// as indicating support for post thumbnails.
 function socialmag_setup() {
-	/**
-	* enables international language translation of SocialMag
-	**/
+	// enables international language translation of SocialMag
 	load_theme_textdomain( 'socialmag', get_template_directory() . '/languages' );
 	
-	//Register Nav Bar 
+	// Register Nav Bar 
 	register_nav_menus( array(
-	    'primary' => esc_html__( 'Primary', 'socialmag' ),
+	    'top' => esc_html__( 'Top Menu', 'socialmag' ),
 	) );
-	/**
-	* enable post thumbnails & custom sizes
-	*/
+
+	// enable post thumbnails & custom sizes
 	add_theme_support( 'post-thumbnails' );
 	
-	set_post_thumbnail_size( 800, 500, array( 'top', 'left')  );
+	set_post_thumbnail_size( 500, 300, array( 'top', 'left')  );
 	
-	add_image_size( 'socialmag-standard', 800, 500 , true );
+	add_image_size( 'socialmag-standard', 1000, 500 , true );
 	
-	add_image_size( 'socialmag-panels', 1200, 500 , true );
+	add_image_size( 'socialmag-panels', 2000, 800 , true );
 	
 	add_image_size( 'socialmag-category-thumb-small', 300, 250, true );
 	
 	add_image_size( 'socialmag-slider', 750, 280, true );
 	
 	add_image_size( 'socialmag-narrow-slider', 750, 310, true );
-	/*
-	* enable post formats
-	*/
+	
+	add_image_size( 'socialmag-single-column', 1150, 600 , true );
+	
+	// enable post formats
 	add_theme_support( 'post-formats', array(
 		'aside',
 		'audio',
@@ -116,74 +116,56 @@ function socialmag_setup() {
 		'quote',
 		'image',
 		'video',
+		'link',
 	) );
 	
-	/*
-	* Add support for custom logo
-	*/
+	// Add support for custom logo
 	$socialmag_logo = array(
 		'width'         => 300,
-		'height'        => 60,
-		'flex-height' 	=> true,
+		'height'        => 70,
+		'flex-height' 	=> false,
 		'flex-width'  	=> true,
 	);
 	add_theme_support( 'custom-logo', $socialmag_logo );
 	
-	$socialmag_header_text = array(
-		'header-text' => false,
+	$socialmag_header_defaults = array(
+		'header-text'	=> false,
+		'default-image'	=> get_template_directory_uri() . '/images/purple-mag.jpg',
+		'width'			=> 3000,
+		'height'		=> 1200,
 	);
-	add_theme_support( 'custom-header', $socialmag_header_text );
+	add_theme_support( 'custom-header', $socialmag_header_defaults );
 	
-	/*
-	* enables the selective refresh of widgets
-	*/
+	// enables the selective refresh of widgets
 	add_theme_support( 'customize-selective-refresh-widgets' );
 	
-	/*
-	* enables title tags
-	*/
+	// enables title tags
 	add_theme_support( 'title-tag' );
 	
-	/*
-	* enable RSS feed links
-	*/
+	// enable RSS feed links
 	add_theme_support( 'automatic-feed-links' );
 	
-	/*
-	* adds styles to the editor
-	*/
+	// adds styles to the editor
 	add_editor_style('/css/custom-editor-style.css');
 	
-	/*
-	* Adds Custom Background Support
-	*/
+	// Adds Custom Background Support
 	add_theme_support( 'custom-background' );
 	
-	/*
-	* Adds WooCommerce Support
-	*/
+	// Adds WooCommerce Support
 	add_theme_support( 'woocommerce' );
 	
-	/*
-	* Adds WooCommerce Gallery Slider, Gallery Zoom, Lightbox Support
-	*/
+	// Adds WooCommerce Gallery Slider, Gallery Zoom, Lightbox Support
+	if ( class_exists('WooCommerce') ):
 	add_theme_support( 'wc-product-gallery-slider' );
 	add_theme_support( 'wc-product-gallery-zoom' );
 	add_theme_support( 'wc-product-gallery-lightbox' );
-	
-	remove_action( 'woocommerce_before_main_content', 'woocommerce_output_content_wrapper', 10);
-	remove_action( 'woocommerce_after_main_content', 'woocommerce_output_content_wrapper_end', 10);
-	
-	add_action('woocommerce_before_main_content', 'socialmag_commerce_wrap', 10);
-	add_action('woocommerce_after_main_content', 'socialmag_commerce_wrap_end', 10);
-	
-	/*
-	* enables starter content
-	*/
+	endif;
+
+	// enables starter content
 	$socialmag_starter_content = array(
 		'widgets' => array(
 			// Places core defined widgets into widget areas
-			'default-right-sidebar' => array(
+			'sidebar-1' => array(
 				'text_about',
 				'search',
 				'categories',
@@ -221,13 +203,13 @@ function socialmag_setup() {
 				'post_title' => _x( 'About', 'Theme starter content', 'socialmag' ),
 				'file' => '/images/about.jpg',
 			),
+			'image-blog' => array(
+				'post_title' => _x( 'Blog', 'Theme starter content', 'socialmag' ),
+				'file' => '/images/blog.jpg',
+			),
 			'image-contact-page' => array(
 				'post_title' => _x( 'Contact', 'Theme starter content', 'socialmag' ),
 				'file' => '/images/contact.jpg',
-			),
-			'image-sample-page' => array(
-				'post_title' => _x( 'Sample Page', 'Theme starter content', 'socialmag' ),
-				'file' => '/images/sample-page.jpg',
 			),
 		),
 		
@@ -238,10 +220,9 @@ function socialmag_setup() {
 				'thumbnail' => '{{image-about}}',
 				'featured-image' => '{{image-about}}',
 			),
-			'blog',
-			'sample-page' => array(
-				'thumbnail' => '{{image-sample-page}}',
-				'featured-image' => '{{image-sample-page}}',
+			'blog' => array(
+				'thumbnail' => '{{image-blog}}',
+				'featured-image' => '{{image-blog}}',
 			),
 			'contact' => array(
 				'thumbnail' => '{{image-contact-page}}',
@@ -255,9 +236,9 @@ function socialmag_setup() {
 
 		// Set up nav menu for registered area in the theme
 		'nav_menus' => array(
-			// Assign a menu to 'primary' section
-			'primary' => array(
-				'name' => esc_html__( 'Primary Menu', 'socialmag' ),
+			// Assign a menu to 'top' section
+			'top' => array(
+				'name' => esc_html__( 'Top Menu', 'socialmag' ),
 				'items' => array(
 					'link_home',
 					'page_about',
@@ -281,27 +262,23 @@ function socialmag_setup() {
 } // socialmag_setup function
 add_action( 'after_setup_theme', 'socialmag_setup' );
 
-/*
-* sets content width
-*/
+// sets content width
 if ( ! isset( $content_width ) ) {
-	$content_width = 800;
+	$content_width = 1000;
 }	
 endif;
 
 function socialmag_content_width() {
-	$GLOBALS['content_width'] = apply_filters( 'socialmag_content_width', 800 );
+	$GLOBALS['content_width'] = apply_filters( 'socialmag_content_width', 1000 );
 }
 add_action( 'after_setup_theme', 'socialmag_content_width', 0 );
 
-/**
- * Register sidebars and widgetized areas.
- */
+// Register sidebars and widgetized areas.
 function socialmag_widget_sidebars() {
 	
 	register_sidebar(array(
 		'name' => esc_html__( 'Default Right Sidebar', 'socialmag' ),
-		'id' => 'default-right-sidebar',
+		'id' => 'sidebar-1',
 		'description'   => esc_html__( 'Default right sidebar which can be overridden by other widget areas.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
@@ -482,7 +459,7 @@ function socialmag_widget_sidebars() {
 	register_sidebar(array(
 		'name' => esc_html__( 'Adsense (Top Right Sidebar)', 'socialmag' ),
 		'id' => 'top-sidebar-ad',
-		'description'   => esc_html__( 'Adsense Widget for Top Right Sidebar. <br>Select <b>Text</b> and paste Adsense code into Content area.', 'socialmag' ),
+		'description'   => esc_html__( 'Adsense Widget for Top Right Sidebar. Select Text and paste Adsense code into Content area.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<h3>',
@@ -491,7 +468,7 @@ function socialmag_widget_sidebars() {
 	register_sidebar(array(
 		'name' => esc_html__( 'Adsense (Home Page Top Center)', 'socialmag'),
 		'id' => 'featured-home-page-ad',
-		'description'   => esc_html__( 'Adsense Widget for Featured Home Page Ad. <br>Select <b>Text</b> and paste Adsense code into Content area. <br> If <b>Full Page</b> Grid Display is selected (728x90) is an ideal size.', 'socialmag' ),
+		'description'   => esc_html__( 'Adsense Widget for Featured Home Page Ad. Select Text and paste Adsense code into Content area.  If Full Page Grid Display is selected (728x90) is an ideal size.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<p>',
@@ -500,7 +477,7 @@ function socialmag_widget_sidebars() {
 	register_sidebar(array(
 		'name' => esc_html__( 'Adsense (Top Right Sidebar)', 'socialmag'),
 		'id' => 'top-right-sidebar-ad',
-		'description'   => esc_html__( 'Adsense Widget for Top Right Sidebar. <br>Select <b>Text</b> and paste Adsense code into Content area.', 'socialmag' ),
+		'description'   => esc_html__( 'Adsense Widget for Top Right Sidebar. Select Text and paste Adsense code into Content area.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<p>',
@@ -509,7 +486,7 @@ function socialmag_widget_sidebars() {
 	register_sidebar(array(
 		'name' => esc_html__( 'Adsense (Top Left Sidebar)', 'socialmag'),
 		'id' => 'top-left-sidebar-ad',
-		'description'   => esc_html__( 'Adsense Widget for Top Left Sidebar. <br>Select <b>Text</b> and paste Adsense code into Content area.', 'socialmag' ),
+		'description'   => esc_html__( 'Adsense Widget for Top Left Sidebar. Select Text and paste Adsense code into Content area.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<p>',
@@ -518,7 +495,7 @@ function socialmag_widget_sidebars() {
 	register_sidebar(array(
 		'name' => esc_html__( 'Adsense (Footer Banner)', 'socialmag'),
 		'id' => 'footer-banner-ad',
-		'description'   => esc_html__( 'Adsense Widget for Footer Banner. <br>Select <b>Text</b> and paste Adsense code into Content area.', 'socialmag' ),
+		'description'   => esc_html__( 'Adsense Widget for Footer Banner. Select Text and paste Adsense code into Content area.', 'socialmag' ),
 		'before_widget' => '<div class="socialmag-theme-widget">',
 		'after_widget' => '</div>',
 		'before_title' => '<p>',
@@ -557,16 +534,7 @@ function socialmag_archive_title( $title ) {
 }
 add_filter( 'get_the_archive_title', 'socialmag_archive_title' );
 
-/*
-* Creates new wrapping html for woocommerce content
-*/
-function socialmag_commerce_wrap() {
-  echo '<section class="main-content col-md-12">';
-}
 
-function socialmag_commerce_wrap_end() {
-  echo '</section>';
-}
 
 // Custom blog post excerpt length
 function socialmag_excerpt_length( $socialmag_post_excerpt_value ) {

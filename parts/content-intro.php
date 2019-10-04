@@ -9,7 +9,9 @@ defined('ABSPATH') or die("please don't run scripts");
 * @copyright      2017 ThemesMatic
 */
 ?>
+
 <div class="featured-intro">
+	
 	<?php $header_tag_check = get_theme_mod( 'socialmag_header_tag_setting', '');
     if( $header_tag_check != '' ):
     
@@ -50,9 +52,9 @@ defined('ABSPATH') or die("please don't run scripts");
 	</h3>
 	<?php endif; ?>
 		
-	<?php $button_check = get_theme_mod( 'socialmag_featured_button_url', '' );
+	<?php $button_check = get_theme_mod('socialmag_button_text_setting', 'Read More');
     if( $button_check != '' ): ?>
 	
-	<a class="btn btn-lg btn-primary featured-button" role="button" href="<?php echo esc_url( get_theme_mod( 'socialmag_featured_button_url', '#' ) ); ?>" target="_blank"><?php echo esc_html( get_theme_mod('socialmag_button_text_setting', '') ); ?></a>
+	<a class="btn btn-lg btn-primary featured-button" href="<?php echo esc_url( get_theme_mod( 'socialmag_featured_button_url', '#front-layout' ) ); ?>"><?php echo esc_html( get_theme_mod('socialmag_button_text_setting', 'Read More') ); ?></a>
 	<?php endif; ?>
 </div><!-- featured-intro -->

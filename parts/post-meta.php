@@ -10,10 +10,7 @@ defined('ABSPATH') or die("please don't run scripts");
 <div class="authorship">
 	<div class="socialmag-posted">
 	<?php if (has_category()): ?>
-	<?php foreach( (get_the_category() ) as $category ): ?>
-	<?php echo esc_html($category->cat_name . '  '); ?>
- 	<?php endforeach; ?>
-	<?php endif; ?>
+	<?php echo esc_html__('Posted in ', 'socialmag' ); ?><?php the_category(', '); ?>	<?php endif; ?>
 	</div><!-- socialmag-posted -->
 	
 	<div class="socialmag-date">

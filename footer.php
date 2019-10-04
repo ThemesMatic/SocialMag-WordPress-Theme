@@ -21,38 +21,40 @@ defined('ABSPATH') or die("please don't runs scripts");
 
 <footer>
 	<div class="container">
-		<div class="col-xs-12 col-md-4">
-			<div class="bottom-title">
-				<?php if ( has_custom_logo() ) : ?>
+		<div class="row">
+			<div class="col-xs-12 col-md-4">
+				<div class="bottom-title">
+					<?php if ( has_custom_logo() ) : ?>
 				    	<?php echo the_custom_logo(); ?>
 					<?php else : ?>
 						<a class="site-title" href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo('name'); ?>"><?php bloginfo('name'); ?></a>
 					<?php endif; ?>
-					
-				<?php if( get_bloginfo('description') !== '' ): ?>
-				<p class="tagline"><?php bloginfo('description'); ?></p>
-				<?php endif; ?>
-				<?php if( get_theme_mod( 'social_icons_sidebar_display', 0 ) != 0 ): ?>
-				<?php get_template_part( 'parts/content', 'icons' ); ?>
-				<?php endif; ?>
-			</div><!-- /bottom-title -->
-		</div><!--/ col-md-4 -->
-		
-		<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
-			<div class="col-xs-12 col-md-4">
-				<div class="widget-area" role="complementary">
-					<?php dynamic_sidebar( 'footer-1' ); ?>
-				</div><!-- /widget-area -->
-			</div><!-- /col-md-4 -->
-		<?php endif; ?>
-		
-		<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
-			<div class="col-xs-12 col-md-4">
-				<div class="widget-area" role="complementary">
-					<?php dynamic_sidebar( 'footer-2' ); ?>
-				</div><!-- /widget-area -->
-			</div><!-- /col-md-4 -->
-		<?php endif; ?>
+						
+					<?php if( get_bloginfo('description') !== '' ): ?>
+					<p class="tagline"><?php bloginfo('description'); ?></p>
+					<?php endif; ?>
+					<?php if( get_theme_mod( 'social_icons_footer_display', 1 ) != 0 ): ?>
+					<?php get_template_part( 'parts/content', 'icons' ); ?>
+					<?php endif; ?>
+				</div><!-- bottom-title -->
+			</div><!-- col-xs-12 col-md-4 -->
+			
+			<?php if ( is_active_sidebar( 'footer-1' ) ) : ?>
+				<div class="col-xs-12 col-md-4">
+					<div class="widget-area" role="complementary">
+						<?php dynamic_sidebar( 'footer-1' ); ?>
+					</div><!-- widget-area -->
+				</div><!-- col-xs-12 col-md-4 -->
+			<?php endif; ?>
+			
+			<?php if ( is_active_sidebar( 'footer-2' ) ) : ?>
+				<div class="col-xs-12 col-md-4">
+					<div class="widget-area" role="complementary">
+						<?php dynamic_sidebar( 'footer-2' ); ?>
+					</div><!-- widget-area -->
+				</div><!-- col-xs-12 col-md-4 -->
+			<?php endif; ?>
+		</div><!-- row -->
 		
 		<div class="col-xs-12 col-md-12 footer-attr">
 			<p class="footer-copy">
@@ -63,7 +65,7 @@ defined('ABSPATH') or die("please don't runs scripts");
 			<?php endif; ?>
 		</div><!-- footer-attr -->
 	</div><!-- container -->
-</footer><!-- /footer container -->
+</footer><!-- footer container -->
 
 <div class="socialmag-top">
 	<p>

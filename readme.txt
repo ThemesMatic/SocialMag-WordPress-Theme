@@ -7,20 +7,20 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Theme Documentation: https://www.themesmatic.com/documentation/socialmag
 
 === Description ===
-SocialMag is a responsive magazine theme that provides a quick way for companies, startups, app developers, shops and bloggers to create a great looking magazine for content marketing. Focusing on content layouts, media and social sharing, SocialMag brings WordPress websites up to date with any online magazine and makes a great modern business theme. Header Video, Featured content section, masonry grids with multiple layouts, ad management, header layouts, full & boxed width, custom colors, custom panels, magazine slider, landing page, portfolio template, multiple sidebar layouts, font selection, social sharing, social network icons, custom login page, custom contact page, custom ad sections for affiliate ads and Google Adsense. SocialMag comes WooCommerce, BBPress, BuddyPress compatible. SEO integration and makes full use of the Theme Customizer making it easy to customize your website.
+SocialMag is a fast, responsive, multipurpose magazine theme built with your social network in mind. Ideal for small business, shops, startups and bloggers to focus on content marketing and bring in more customers. Comes with a WooCommerce storefront for e-commerce shops and works well with BBPress, BuddyPress and Contact Form 7 plugins. SocialMag is coded to be fast loading and lightweight with SEO optimized code in order to be fully responsive and look great on any device. All of these factors help to achieve top rankings in Google search results while giving your site a clean, minimalist look. This theme also comes with custom templates for portfolios, multiple sidebars, content sliders, custom pages, our social sharing plugin and is translation ready. SocialMag has a large suite of customizer controls to change everything from colors and layouts to typography and font styles using Google Fonts, Bootstrap and FontAwesome. Create a content marketing magazine with SocialMag!
 
 === Photo Credits ===
 All images (including the featured image on main page) used are courtesy of the photographers on Pexels.com:
 
 === Header Image ===
-What: Photo of Woman Holding Lights by Matheus Bertelli
-URI: https://www.pexels.com/photo/photography-of-a-woman-holding-lights-799420/
+What: Group of People Reading Book by Helena Lopes
+URI: https://www.pexels.com/photo/group-of-people-reading-book-sitting-on-chair-711009/
 License Type: CC0 license
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
-=== Ocean Waves Photo ===
-What: Photo of ocean waves by Sebastian Voortman
-URI: https://www.pexels.com/photo/action-adventure-aerial-aerial-shot-312105/
+=== Surfer & Ocean Photo ===
+What: Photo of ocean and surfer by Pixabay
+URI: https://www.pexels.com/photo/action-beach-fun-leisure-416676/
 License Type: CC0 license
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
@@ -36,25 +36,43 @@ URI: https://www.pexels.com/photo/brown-and-white-american-pit-bull-terrier-with
 License Type: CC0 license
 License URI: https://creativecommons.org/publicdomain/zero/1.0/
 
-=== Bootstrap V3 ===
+=== Ocean Photo ===
+What: Ocean Photo by Sebastian Voortman 
+URI: https://www.pexels.com/photo/action-adventure-aerial-aerial-shot-312105/
+License Type: CC0 license
+License URI: https://creativecommons.org/publicdomain/zero/1.0/
+
+=== Forest Photo ===
+What: Ocean Photo by Rudolf Jakkel 
+URI: https://www.pexels.com/photo/adventure-atmosphere-conifer-conifers-418831/
+License Type: CC0 license
+License URI: https://creativecommons.org/publicdomain/zero/1.0/
+
+=== Lake and Blanket Photo ===
+What: Lake and Blanket Photo by Spencer Selover  
+URI: https://www.pexels.com/photo/blanket-environment-foggy-haze-590137/
+License Type: CC0 license
+License URI: https://creativecommons.org/publicdomain/zero/1.0/
+
+=== Cooking Spoons Photo ===
+What: White Spoons and Spices Photo by Pixabay  
+URI: https://www.pexels.com/photo/aroma-chili-condiments-cook-357743/
+License Type: CC0 license
+License URI: https://creativecommons.org/publicdomain/zero/1.0/
+
+=== Bootstrap v4.3.1 ===
 What: CSS Framework
 URI: http://getbootstrap.com/
 License Type: MIT License
 License URI: https://github.com/twbs/bootstrap/blob/master/LICENSE
 
-=== FontAwesome ===
+=== FontAwesome 5.10.2 ===
 What: Icon Font
-URI: http://fontawesome.io/
+URI: http://fontawesome.com
 License Type (Font): SIL OFL 1.1
 License Type (CSS): MIT License
 License URI (Font): http://scripts.sil.org/OFL
 License URI (CSS):http://opensource.org/licenses/mit-license.html
-
-=== Salvattore ===
-What: jQuery Masonry Grid
-URI: http://salvattore.com/
-License Type: MIT License
-License URI: https://github.com/rnmp/salvattore/blob/master/LICENSE
 
 === Google Fonts ===
 What: Fonts

@@ -1,10 +1,9 @@
 button#bbp_topic_submit,
-#subscription-toggle a,
 input#bbp_search_submit {
     background: #222;
     color: #fff;
     border: 0px;
-    border-radius: 2px;
+    border-radius: 35px;
     font-size: 15px;
     font-weight: 500;
     padding: 10px 30px;
@@ -14,9 +13,11 @@ input#bbp_search_submit {
 	-o-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
-#subscription-toggle span,
-.bbp-breadcrumb p {
-	line-height: 40px;
+#bbpress-forums p.bbp-topic-meta img.avatar {
+	margin-bottom: 0;
+}
+#bbp-search-form div {
+	display: flex;
 }
 #bbp-search-form {
 	margin-bottom: 20px;
@@ -34,7 +35,7 @@ div.bbp-template-notice.info p {
 }
 input#bbp_search_submit:hover,
 button#bbp_topic_submit:hover {
-	background: #e10b00;
+	background: #999;
 	border: 0px;
 	color: #fff;
 }
@@ -79,6 +80,26 @@ select,
 select option {
 	font-family: inherit;
 	font-size: 15px;
+}
+#bbpress-forums fieldset.bbp-form {
+	padding: 0;
+}
+.bbpress .authorship {
+	display: none;
+}
+button#bbp_reply_submit {
+	background: #222;
+    color: #fff;
+    border: 0px;
+    border-radius: 35px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
 }
 @media screen and (max-width: 480px) {
 	span#subscription-toggle,

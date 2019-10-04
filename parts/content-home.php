@@ -7,8 +7,10 @@ defined('ABSPATH') or die("please don't run scripts");
 * @copyright      2017 ThemesMatic
 */
 ?>
-<div class="container <?php if ( get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 || is_active_sidebar( 'socialmag-sitewide-left-sidebar') || is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-sitewide-right-sidebar') || is_active_sidebar( 'socialmag-sitewide-right-sidebar') && get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 || is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-right-home-sidebar') || get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 && is_active_sidebar( 'socialmag-right-home-sidebar') ): echo esc_attr('double-sidebar'); endif; ?>">
 
+<div class="container <?php if( get_theme_mod('socialmag_home_slider_overlap', 1) != 0 && get_theme_mod( 'socialmag_featured_section_choices', 'featured-slider' ) != 'none'): ?>socialmag-content<?php endif; ?> <?php if ( get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 || is_active_sidebar( 'socialmag-sitewide-left-sidebar') || is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-sitewide-right-sidebar') || is_active_sidebar( 'socialmag-sitewide-right-sidebar') && get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 || is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-right-home-sidebar') || get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 && is_active_sidebar( 'socialmag-right-home-sidebar') ): echo esc_attr('double-sidebar'); endif; ?> <?php if ( is_paged() ): ?>socialmag-paginated<?php endif; ?>">
+	
+	<div class="row">
 	<?php get_template_part('parts/standard', 'grid'); ?>
 
 		<?php if ( is_active_sidebar( 'socialmag-sitewide-left-sidebar') && get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 ): ?>
@@ -52,4 +54,6 @@ defined('ABSPATH') or die("please don't run scripts");
 		<?php if ( get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 && is_active_sidebar('socialmag-right-home-sidebar') || is_active_sidebar('socialmag-sitewide-right-sidebar') ||  get_theme_mod('socialmag_left_sidebar_home_check', 0) != 1 ): ?>
 		<?php get_sidebar(); ?>
 		<?php endif; ?>
+		
+		</div><!-- row -->
 </div><!-- container -->

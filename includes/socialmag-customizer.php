@@ -25,6 +25,7 @@ defined('ABSPATH') or die("please don't run scripts");
     $wp_customize->get_section('header_image')->priority = 20;
     $wp_customize->get_section('colors')->priority = 21;
     $wp_customize->get_setting('blogname')->transport = 'postMessage';
+    $wp_customize->get_setting('custom_logo')->transport = 'refresh';
     $wp_customize->get_setting('blogdescription')->transport = 'postMessage';
     
     //*********************************************************************************
@@ -77,6 +78,11 @@ defined('ABSPATH') or die("please don't run scripts");
     
     require get_template_directory() . '/includes/sections/socialmag-fonts-section.php';
     
+   //******************************************************************************/
+    // Slider Setting & Controls
+    
+    require get_template_directory() . '/includes/sections/socialmag-slider.php';
+    
     //******************************************************************************/
     // Front Page Settings & Controls
 	
@@ -86,34 +92,33 @@ defined('ABSPATH') or die("please don't run scripts");
     // Adds Social Network Icons and links
     
     $socialmag_themesmatic_social = array(
-		        'none'			=> '-',
-	            'amazon'		=> esc_html__('Amazon', 'socialmag'),
-				'behance'		=> esc_html__('Behance', 'socialmag'),
-				'digg'			=> esc_html__('Digg', 'socialmag'),
-				'etsy'			=> esc_html__('Etsy', 'socialmag'),
-				'dribbble'		=> esc_html__('Dribbble', 'socialmag'),
-				'facebook'		=> esc_html__('Facebook', 'socialmag'),
-				'flickr'		=> esc_html__('Flickr', 'socialmag'),
-				'github'		=> esc_html__('Github', 'socialmag'),
-				'google-plus'	=> esc_html__('Google Plus', 'socialmag'),
-				'instagram'		=> esc_html__('Instagram', 'socialmag'),
-				'imdb'			=> esc_html__('IMDB', 'socialmag'),
-				'lastfm'		=> esc_html__('LastFM', 'socialmag'),
-				'linkedin'		=> esc_html__('Linked In', 'socialmag'),
-				'pinterest'		=> esc_html__('Pinterest', 'socialmag'),
-				'podcast'		=> esc_html__('Podcast', 'socialmag'),
-				'reddit-alien'	=> esc_html__('Reddit', 'socialmag'),
-				'spotify'		=> esc_html__('Spotify', 'socialmag'),
-				'soundcloud'	=> esc_html__('Soundcloud', 'socialmag'),
-				'tumblr'		=> esc_html__('Tumblr', 'socialmag'),
-				'twitter'		=> esc_html__('Twitter', 'socialmag'),
-				'twitch'		=> esc_html__('Twitch', 'socialmag'),
-				'vine'			=> esc_html__('Vine', 'socialmag'),
-				'vimeo'			=> esc_html__('Vimeo', 'socialmag'),
-				'youtube'		=> esc_html__('Youtube', 'socialmag'),
-				'wordpress'		=> esc_html__('WordPress', 'socialmag'),
-				'vk'			=> esc_html__('VK','socialmag'),
-				'xing'			=> esc_html__('Xing','socialmag'),
+		        'none'					=> '-',
+	            'fab fa-amazon'			=> esc_html__('Amazon', 'socialmag'),
+				'fab fa-behance'		=> esc_html__('Behance', 'socialmag'),
+				'fab fa-digg'			=> esc_html__('Digg', 'socialmag'),
+				'fab fa-etsy'			=> esc_html__('Etsy', 'socialmag'),
+				'fab fa-dribbble'		=> esc_html__('Dribbble', 'socialmag'),
+				'fab fa-facebook-f'		=> esc_html__('Facebook', 'socialmag'),
+				'fab fa-flickr'			=> esc_html__('Flickr', 'socialmag'),
+				'fab fa-github'			=> esc_html__('Github', 'socialmag'),
+				'fab fa-instagram'		=> esc_html__('Instagram', 'socialmag'),
+				'fab fa-imdb'			=> esc_html__('IMDB', 'socialmag'),
+				'fab fa-lastfm'			=> esc_html__('LastFM', 'socialmag'),
+				'fab fa-linkedin'		=> esc_html__('Linked In', 'socialmag'),
+				'fab fa-pinterest-p'	=> esc_html__('Pinterest', 'socialmag'),
+				'fas fa-podcast'		=> esc_html__('Podcast', 'socialmag'),
+				'fab fa-reddit-alien'	=> esc_html__('Reddit', 'socialmag'),
+				'fab fa-spotify'		=> esc_html__('Spotify', 'socialmag'),
+				'fab fa-soundcloud'		=> esc_html__('Soundcloud', 'socialmag'),
+				'fab fa-tumblr'			=> esc_html__('Tumblr', 'socialmag'),
+				'fab fa-twitter'		=> esc_html__('Twitter', 'socialmag'),
+				'fab fa-twitch'			=> esc_html__('Twitch', 'socialmag'),
+				'fab fa-vine'			=> esc_html__('Vine', 'socialmag'),
+				'fab fa-vimeo'			=> esc_html__('Vimeo', 'socialmag'),
+				'fab fa-youtube'		=> esc_html__('Youtube', 'socialmag'),
+				'fab fa-wordpress'		=> esc_html__('WordPress', 'socialmag'),
+				'fab fa-vk'				=> esc_html__('VK','socialmag'),
+				'fab fa-xing'			=> esc_html__('Xing','socialmag'),
 	);
 	
 	//******************************************************************************/
@@ -124,43 +129,42 @@ defined('ABSPATH') or die("please don't run scripts");
 	//Sanitizes Social Selection
 	function socialmag_sanitize_social( $input ) {
 	    $socialmag_themesmatic_social = array(
-		        'none'			=> '-',
-		        'amazon'		=> 'Amazon',
-				'behance'		=> 'Behance',
-				'digg'			=> 'Digg',
-				'etsy'			=> 'Etsy',
-				'dribbble'		=> 'Dribbble',
-				'facebook'		=> 'Facebook',
-				'flickr'		=> 'Flickr',
-				'github'		=> 'Github',
-				'google-plus'	=> 'Google Plus',
-				'instagram'		=> 'Instagram',
-				'imdb'			=> 'IMDB',
-				'lastfm'		=> 'LastFM',
-				'linkedin'		=> 'Linked In',
-				'pinterest'		=> 'Pinterest',
-				'podcast'		=> 'Podcast',
-				'reddit-alien'	=> 'Reddit',
-				'spotify'		=> 'Spotify',
-				'soundcloud'	=> 'Soundcloud',
-				'tumblr'		=> 'Tumblr',
-				'twitter'		=> 'Twitter',
-				'twitch'		=> 'Twitch',
-				'vine'			=> 'Vine',
-				'vimeo'			=> 'Vimeo',
-				'youtube'		=> 'Youtube',
-				'wordpress'		=> 'WordPress',
-				'vk'			=> 'VK',
-				'xing'			=> 'Xing',
+		        'none'					=> '-',
+		        'fab fa-amazon'			=> 'fab fa-amazon',
+				'fab fa-behance'		=> 'Behance',
+				'fab fa-digg'			=> 'Digg',
+				'fab fa-etsy'			=> 'Etsy',
+				'fab fa-dribbble'		=> 'Dribbble',
+				'fab fa-facebook-f'		=> 'Facebook',
+				'fab fa-flickr'			=> 'Flickr',
+				'fab fa-github'			=> 'Github',
+				'fab fa-instagram'		=> 'Instagram',
+				'fab fa-imdb'			=> 'IMDB',
+				'fab fa-lastfm'			=> 'LastFM',
+				'fab fa-linkedin'		=> 'Linked In',
+				'fab fa-pinterest-p'	=> 'Pinterest',
+				'fas fa-podcast'		=> 'Podcast',
+				'fab fa-reddit-alien'	=> 'Reddit',
+				'fab fa-spotify'		=> 'Spotify',
+				'fab fa-soundcloud'		=> 'Soundcloud',
+				'fab fa-tumblr'			=> 'Tumblr',
+				'fab fa-twitter'		=> 'Twitter',
+				'fab fa-twitch'			=> 'Twitch',
+				'fab fa-vine'			=> 'Vine',
+				'fab fa-vimeo'			=> 'Vimeo',
+				'fab fa-youtube'		=> 'Youtube',
+				'fab fa-wordpress'		=> 'WordPress',
+				'fab fa-vk'				=> 'VK',
+				'fab fa-xing'			=> 'Xing',
 				);
-	 
+					 
 	    if ( array_key_exists( $input, $socialmag_themesmatic_social ) ) {
 	        return $input;
 	    } else {
 	        return '';
 	    }
 	} //end socialmag_sanitize_social
-			
+				
 	// Sanitizes Checkboxes
 	function socialmag_sanitize_checkbox( $input ) {
 		if ( $input == 1 ) {
@@ -180,6 +184,13 @@ defined('ABSPATH') or die("please don't run scripts");
 		return intval( $int );
 	} //end socialmag_sanitize_int
 	
+	// Sanitizes featured section choices
+	function socialmag_sanitize_featured_choices( $input ) {
+		$valid_features = array( 'featured-slider', 'featured-static', 'none' );
+		
+		return in_array( $input, $valid_features ) ? $input : '';
+	}
+	
 	// Sanitize Radio Button (Grid Choice)
 	function socialmag_sanitize_grid( $input ) {
 		$valid_grid = array( 'standard', 'category', 'fullpage', 'magazine' );
@@ -194,18 +205,11 @@ defined('ABSPATH') or die("please don't run scripts");
 		return in_array( $input, $valid_column ) ? $input : '';
 	} //end socialmag_sanitize_column_choice
 	
-	// Sanitize Header Choices
-	function socialmag_sanitize_header_choice( $input ) {
-		$valid_header_choice = array( 'header-one', 'header-two' );
-		
-		return in_array( $input, $valid_header_choice ) ? $input : '';
-	} //end socialmag_sanitize_header_choice
-	
 	// Sanitize Header Display Position
 	function socialmag_sanitize_header( $input ){
 		$valid_header_display = array( 'fixed', 'absolute' );
 		
-		return in_array( $input, $valid_header_display ) ? input : '';
+		return in_array( $input, $valid_header_display ) ? $input : '';
 	}
 	
 	// Sanitize Contact Form Layout
@@ -256,7 +260,7 @@ defined('ABSPATH') or die("please don't run scripts");
 	} // end socialmag_right_sidebar_active
 		
 } // end socialmag_themesmatic_customize_register function
-	
+
 	//******************************************************************************/
     // Outputs Generated Theme Customizer CSS
     
@@ -270,7 +274,7 @@ defined('ABSPATH') or die("please don't run scripts");
 	
 	function socialmag_customizer_scripts() {
 		wp_enqueue_style( 'socialmag_customizer_style', get_template_directory_uri(). '/css/theme-customizer-panel.css');
-		wp_enqueue_style( 'socialmag_font_awesome_style', get_template_directory_uri(). '/css/font-awesome.min.css');
+		wp_enqueue_script( 'font_awesome', esc_url('https://kit.fontawesome.com/8505bfa10f.js') );
 	} //end socialmag_customizer_scripts
 	
 	// Updates some live setting previews to 'postMessage' from the default 'refresh' and loads scripts

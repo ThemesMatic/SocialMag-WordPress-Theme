@@ -12,7 +12,7 @@ function socialmag_header_setup() {
 * enable header image
 */
 add_theme_support( 'custom-header', apply_filters( 'social_mag_header_args', array(
-	'default-image' => get_parent_theme_file_uri( '/images/socialmag-cover-pexels-photo-799420.jpg' ),
+	'default-image' => get_parent_theme_file_uri( '/images/socialmag-orange.png' ),
 	'flex-width'    => true,
 	'flex-height'   => true,
 	'width'         => 1500,
@@ -25,8 +25,8 @@ add_theme_support( 'custom-header', apply_filters( 'social_mag_header_args', arr
 */
 register_default_headers( array(
 	'default-image' => array(
-		'url'           => get_parent_theme_file_uri('/images/socialmag-cover-pexels-photo-799420.jpg'),
-		'thumbnail_url' => get_parent_theme_file_uri('/images/socialmag-cover-pexels-photo-799420.jpg'),
+		'url'           => get_parent_theme_file_uri('/images/socialmag-orange.png'),
+		'thumbnail_url' => get_parent_theme_file_uri('/images/socialmag-orange.png'),
 		'description'   => esc_html__( 'Social Mag Featured', 'socialmag' )
 	)
 ) );

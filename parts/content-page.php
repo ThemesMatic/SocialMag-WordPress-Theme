@@ -9,12 +9,14 @@ defined('ABSPATH') or die("please don't run scripts");
 * @copyright      2017 ThemesMatic
 */
 ?>
-<h1 id="post-<?php the_ID(); ?>" <?php post_class(); ?> title="<?php the_title_attribute(); ?>"><?php the_title(); ?></h1>
+<?php if ( !is_front_page() ): ?>
+	<h1 id="post-<?php the_ID(); ?>" <?php post_class(); ?> title="<?php the_title_attribute(); ?>"><?php the_title(); ?></h1>
+<?php endif; ?>
 	
 <div class="content-wrap single-page">
 
 	<?php if ( has_post_thumbnail() ) {
-		the_post_thumbnail(); } ?>
+		the_post_thumbnail('socialmag-standard'); } ?>
 		
 		<div class="spacer">
 		<?php get_template_part( 'parts/post', 'meta'); ?>

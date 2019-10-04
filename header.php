@@ -16,8 +16,7 @@ defined('ABSPATH') or die("please don't run scripts");
 	<?php wp_head(); ?>
 </head><!-- /head -->
 
-<body <?php if ( get_theme_mod('socialmag_header_choices', 'header-one') == 'header-two' ): ?>id="center-menu"<?php endif; ?>
-	<?php if (get_theme_mod( 'socialmag_boxed_check', 0 ) == 1 ): ?>
+<body <?php if (get_theme_mod( 'socialmag_boxed_check', 0 ) == 1 ): ?>
 		<?php body_class('boxed'); ?>
 		<?php else: ?>
 		<?php body_class('socialmag'); ?>

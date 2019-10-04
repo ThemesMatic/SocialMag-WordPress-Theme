@@ -1,7 +1,7 @@
 <?php
 	
 	//Sidebar Displays Header
-    $wp_customize->add_setting('socialmag_sidebar_header', array(
+    $wp_customize->add_setting( 'socialmag_sidebar_header', array(
         'type' => 'headline_control',
     	'capability'        => 'edit_theme_options',
         'sanitize_callback' => 'esc_attr',
@@ -20,7 +20,7 @@
 	);
  
     //Sidebar Displays Divider
-    $wp_customize->add_setting('socialmag_sidebar_divider', array(
+    $wp_customize->add_setting( 'socialmag_sidebar_divider', array(
         'type' => 'headline_control',
     	'capability'        => 'edit_theme_options',
         'sanitize_callback' => 'esc_attr',

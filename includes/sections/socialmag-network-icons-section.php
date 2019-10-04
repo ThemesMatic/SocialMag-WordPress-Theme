@@ -29,12 +29,25 @@
 	
 	// Display Social Network Icons in Sidebar
     $wp_customize->add_setting( 'social_icons_sidebar_display', array(
-        'default'	=> 0,
+        'default'	=> 1,
         'sanitize_callback'	=> 'socialmag_sanitize_checkbox',
     ) );
 
 	$wp_customize->add_control( 'social_icons_sidebar_display', array(
-        'label'		=> esc_html__( 'Display Social Network Icons (Sidebar & Footer)', 'socialmag' ),
+        'label'		=> esc_html__( 'Display Social Network Icons Sidebar', 'socialmag' ),
+        'section'	=> 'socialmag_network_icons_section',
+        'type'		=> 'checkbox',
+        'priority'	=> 1
+    ) );
+    
+    // Display Social Network Icons in Footer
+    $wp_customize->add_setting( 'social_icons_footer_display', array(
+        'default'	=> 1,
+        'sanitize_callback'	=> 'socialmag_sanitize_checkbox',
+    ) );
+
+	$wp_customize->add_control( 'social_icons_footer_display', array(
+        'label'		=> esc_html__( 'Display Social Network Icons Footer', 'socialmag' ),
         'section'	=> 'socialmag_network_icons_section',
         'type'		=> 'checkbox',
         'priority'	=> 1
@@ -47,14 +60,14 @@
     ) );
 
 	$wp_customize->add_control( 'socialmag_icons_position', array(
-        'label'		=> esc_html__( 'Display Social Network Icons in Left or Right Sidebar', 'socialmag' ),
+        'label'		=> esc_html__( 'Right or Left Sidebar to Display Social Network Icons', 'socialmag' ),
+        'description' => esc_html( 'To enable Left Sidebar, go to Sidebar Options panel.', 'socialmag'),
         'section'	=> 'socialmag_network_icons_section',
         'type'		=> 'radio',
         'choices' 			=> array(
 	            'left'	=> esc_html__('Left Sidebar', 'socialmag'),
             	'right'	=> esc_html__('Right Sidebar', 'socialmag'),
             	),
-
         'priority'	=> 1
     ) );
     

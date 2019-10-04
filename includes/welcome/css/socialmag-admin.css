@@ -1,0 +1,40 @@
+.socialmag-admin img.socialmag-pro {
+	height: 100%;
+	max-width: 500px;
+	border: 1px solid #eee;
+	margin-right: 10px;
+}
+.socialmag-admin h1 {
+font-size: 36px;
+margin-bottom: .5em;
+}
+.socialmag-admin h2 {
+	font-weight: 600;
+	font-size: 23px;
+}
+.socialmag-wrap {
+	background: #fff;
+	display: flex;
+	flex-direction: row;
+}
+.socialmag-content {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+}
+p.socialmag-description {
+	max-width: 650px;
+}
+.socialmag-btn-bar {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	max-width: 450px;
+	width: 100%;
+}
+.socialmag-tab {
+	display: none;
+}
+.socialmag-tab.active {
+	display: flex;
+}

@@ -25,7 +25,7 @@ defined('ABSPATH') or die("please don't run scripts");
 		<?php endif; ?>
 	<?php endif; ?>
 	
-	<?php if ( get_theme_mod('social_icons_sidebar_display', 0) == 1 && get_theme_mod('socialmag_icons_position', 'right') == 'right' ): ?>
+	<?php if ( get_theme_mod('social_icons_sidebar_display', 1) == 1 && get_theme_mod('socialmag_icons_position', 'right') == 'right' ): ?>
 	<?php get_template_part( 'parts/content', 'icons' ); ?>
 	<?php endif; ?>
 		
@@ -34,8 +34,8 @@ defined('ABSPATH') or die("please don't run scripts");
 		<?php dynamic_sidebar( 'socialmag-sitewide-right-sidebar' ); ?>
 		<?php elseif ( is_front_page() && is_active_sidebar( 'socialmag-right-home-sidebar' ) ) : ?>
 		<?php dynamic_sidebar( 'socialmag-right-home-sidebar' ); ?>
-		<?php elseif ( is_active_sidebar( 'default-right-sidebar' ) ): ?>
-		<?php dynamic_sidebar( 'default-right-sidebar' ); ?>
+		<?php elseif ( is_active_sidebar( 'sidebar-1' ) ): ?>
+		<?php dynamic_sidebar( 'sidebar-1' ); ?>
 		<?php endif; ?>
 	</div><!-- #primary-sidebar -->
 </aside><!-- sidebar -->

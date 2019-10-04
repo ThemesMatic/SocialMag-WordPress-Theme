@@ -47,23 +47,11 @@
 				} );
 		} );
     } );
-    
-    //Submit Button Hover Color
-	wp.customize( 'socialmag_accent_color', function( value ) {
-		value.bind( function( to ) {
-			$('input#submit, input#contact-submit, .carousel-indicators li').hover(
-				function() {
-					$(this).css('background', to );	
-				}, function() {
-					$(this).css('background', '' );
-				} );
-		} );
-    } );
-    
+        
     //Featured Home Page Menu Links Color
 	wp.customize( 'socialmag_featured_menu_textcolor', function( value ) {
 		value.bind( function( to ) {
-			$('.featured a.site-title, .featured ul.top-menu > li > a, .featured i#mobile-navigation, .featured i.search-icon, .featured ul.create-menu > li > a').css('color', to);
+			$('.socialmag-transparent-bg.featured a.site-title, .socialmag-transparent-bg.featured ul.top-menu > li > a, .socialmag-transparent-bg.featured i#mobile-navigation, .socialmag-transparent-bg.featured i.search-icon, .socialmag-transparent-bg.featured ul.create-menu > li > a').css('color', to);
 		} );
 	} );
 	
@@ -77,14 +65,14 @@
     //Featured Home Page Text Color
 	wp.customize( 'socialmag_featured_title_color', function( value ) {
 		value.bind( function( to ) {
-			$('.featured-intro .intro-main-text, .featured-intro .main-second-intro, .featured-intro h2, .featured-intro p').css('color', to );
+			$('.featured-intro .intro-main-text, .featured-intro .main-second-intro, .featured-intro h2, .featured-intro p, .featured-slider .carousel-caption h2, .featured-slider .carousel-caption p').css('color', to );
 		} );
 	} );
 	
-	//Featured Home Page/Panel Button Color
-	wp.customize( 'socialmag_accent_color', function( value ) {
+	//Featured Button Text Color
+	wp.customize( 'socialmag_featured_button_text_color', function( value ) {
 		value.bind( function( to ) {
-			$('.btn-primary:hover, .btn-primary.featured-button').css('background', to );
+			$('.btn-primary.featured-button').css('color', to );
 		} );
 	} );
 	
@@ -111,7 +99,7 @@
 	//Footer Text Color
 	wp.customize( 'socialmag_footer_textcolor', function( value ) {
 		value.bind( function( to ) {
-			$('footer p, .footer-tml a, .bottom-title p.tagline, footer .socialmag-theme-widget h3, footer .socialmag-theme-widget a').css('color', to );
+			$('footer a.site-title, footer p, .footer-tml a, .bottom-title p.tagline, footer .socialmag-theme-widget h3, footer .socialmag-theme-widget a, footer .textwidget p, footer .footer-attr p, footer .footer-attr a').css('color', to );
 		} );
 	} );
 	
@@ -284,7 +272,7 @@
 	//Preview Size of Social Icons
 	wp.customize( 'socialmag_themesmatic_icon_size', function( value ) {
 		value.bind( function( to ) {
-			$('.social-network-links a .fa').css('font-size', to + 'px' );
+			$('.social-network-links a i').css('font-size', to + 'px' );
 		} );
 	} );
 	

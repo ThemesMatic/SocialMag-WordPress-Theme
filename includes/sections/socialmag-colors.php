@@ -4,7 +4,7 @@
     
     $wp_customize->add_setting( 'socialmag_featured_menu_textcolor',
      array(
-        'default' => '#fff',
+        'default' => '#ffffff',
         'type' => 'theme_mod', 
         'capability' => 'edit_theme_options',
         'transport' => 'postMessage',
@@ -16,8 +16,8 @@
      $wp_customize,
      'socialmag_featured_menu_textcolor',
      array(
-        'label' => esc_html__( 'Home Menu Text Color', 'socialmag' ),
-        'description' => esc_html__( 'Site title & menu text on featured home page section', 'socialmag' ),
+        'label' => esc_html__( 'Transparent Home Menu Text Color', 'socialmag' ),
+        'description' => esc_html__( 'Site title & menu text on transparent home header', 'socialmag' ),
         'section' => 'colors',
         'settings' => 'socialmag_featured_menu_textcolor',
         'active_callback' => 'is_front_page',
@@ -27,7 +27,7 @@
          
     $wp_customize->add_setting( 'socialmag_accent_color',
      array(
-        'default' => '#e10b00',
+        'default' => '#999999',
         'type' => 'theme_mod', 
         'capability' => 'edit_theme_options',
         'transport' => 'postMessage',
@@ -60,7 +60,7 @@
      $wp_customize,
      'socialmag_featured_title_color',
      array(
-        'label' => esc_html__( 'Featured Title & Intro Text Color', 'socialmag' ),
+        'label' => esc_html__( 'Featured Slider/Featured Image Text Color', 'socialmag' ),
         'description' => esc_html__( 'Featured Home Page Text', 'socialmag'),
         'section' => 'colors',
         'settings' => 'socialmag_featured_title_color',
@@ -68,6 +68,28 @@
         'priority' => 10,
 		) 
 	) );
+	
+	$wp_customize->add_setting( 'socialmag_featured_button_text_color',
+     array(
+        'default' => '#333333',
+        'type' => 'theme_mod', 
+        'capability' => 'edit_theme_options',
+        'transport' => 'postMessage',
+        'sanitize_callback' => 'sanitize_hex_color',
+		)
+	);
+  
+  	$wp_customize->add_control( new WP_Customize_Color_Control(
+     $wp_customize,
+     'socialmag_featured_button_text_color',
+     array(
+        'label' => esc_html__( 'Featured Button Text Color', 'socialmag' ),
+        'section' => 'colors',
+        'settings' => 'socialmag_featured_button_text_color',
+        'priority' => 10,
+		) 
+	) );
+
 			
 	$wp_customize->add_setting( 'socialmag_site_background_color',
      array(

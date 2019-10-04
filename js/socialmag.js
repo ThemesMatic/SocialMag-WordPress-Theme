@@ -15,34 +15,6 @@ jQuery(document).ready(function($) {
 		}).scroll();
 	}).resize();
 });
-
-jQuery(document).ready(function($) {
-	$(window).scroll(function() {
-		if ($(window).scrollTop() >= 1) {
-			$('#nav-container').addClass('fixed-header');
-		}
-		else {
-		       $('#nav-container').removeClass('fixed-header');
-		}
-	});
-});
-// adds fixed header on scroll (if screen size is great than 991px)
-jQuery(document).ready(function($) {
-	$(window).on('resize', function () {
-		if ($(window).width() < 991) {
-		       $('#nav-container').removeClass('fixed-header');
-		    }
-	}).resize();
-});
-
-// get changed nav-container height and add to header dynamically
-jQuery(document).ready(function($) {
-	$(window).on('resize', function() {
-		var headerheight = $('#nav-container').innerHeight();
-		$('.masthead').css( "height", headerheight );
-		$('#mobile-navigation').css( "line-height", headerheight + 'px' );
-	});
-});
 // toggle main navigation menu in mobile
 jQuery(document).ready(function($) {
 	$('i#mobile-navigation').click(function() {
@@ -65,6 +37,7 @@ jQuery(document).ready(function($) {
 jQuery(document).ready(function($) {
 	$('.menu-item-has-children .fa-caret-down').on("click", function() {
 		$(this).parent().find('ul.sub-menu').toggleClass('display');
+		return false;
 	});
 // close any toggled mobile menus on desktop
 	$(window).on('resize', function () {
@@ -73,11 +46,15 @@ jQuery(document).ready(function($) {
         }
     });
 });
-// maintain responsive video aspect ratio using bootstrap
-// video embeds compatible: vine.co/vimeo.com/youtube.com/twitch.tv/ustream.tv
+// Smooth scroll to anchor links
 jQuery(document).ready(function($){
-	$("iframe[src^='https://player.vimeo.com'], iframe[src^='https://www.youtube.com'],iframe[src^='https://vine.co'],iframe[src^='http://www.ustream.tv'],iframe[src^='https://player.twitch.tv']").addClass("embed-responsive-item");
-	$("iframe[src^='https://player.vimeo.com'], iframe[src^='https://www.youtube.com'],iframe[src^='https://vine.co'],iframe[src^='http://www.ustream.tv'],iframe[src^='https://player.twitch.tv']").wrap("<div class='embed-responsive embed-responsive-16by9'></div>");
+    $('.featured-button[href*="#"]').click(function(e) {
+        e.preventDefault();
+        $("html, body").animate({
+	        scrollTop: $($(this).attr("href")).offset().top-60
+	    }, 500);
+	  return false;  
+    });
 });
 // Creates scroll top action
 jQuery(document).ready(function($){
@@ -89,12 +66,18 @@ jQuery(document).ready(function($){
 			$('.socialmag-top').removeClass('show-scroll');
 		}
 	}).scroll();
-	
-// scroll to top on click
-	$('.socialmag-top').click(function(event){
-		event.preventDefault();
+	$('.socialmag-top').click(function(e){
+		e.preventDefault();
 		$('html,body').animate({
 			scrollTop: 0 ,
 			}, 800);
+			return false;
 	});
+
+});
+// maintain responsive video aspect ratio using bootstrap
+// video embeds compatible: vimeo.com/youtube.com/twitch.tv/ustream.tv
+jQuery(document).ready(function($){
+	$("iframe[src^='https://player.vimeo.com'], iframe[src^='https://www.youtube.com'],iframe[src^='http://www.ustream.tv'],iframe[src^='https://player.twitch.tv']").addClass("embed-responsive-item");
+	$("iframe[src^='https://player.vimeo.com'], iframe[src^='https://www.youtube.com'],iframe[src^='http://www.ustream.tv'],iframe[src^='https://player.twitch.tv']").wrap("<div class='embed-responsive embed-responsive-16by9'></div>");
 });

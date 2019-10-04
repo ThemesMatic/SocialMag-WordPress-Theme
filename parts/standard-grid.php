@@ -10,8 +10,8 @@ defined('ABSPATH') or die("please don't run scripts");
 */
 ?>
 <div id="front-layout" <?php if ( is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-sitewide-right-sidebar') || is_active_sidebar( 'socialmag-sitewide-right-sidebar') && get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 || is_active_sidebar( 'socialmag-sitewide-left-sidebar') && is_active_sidebar( 'socialmag-right-home-sidebar') || get_theme_mod('socialmag_left_sidebar_home_check', 0) == 1 && is_active_sidebar( 'socialmag-right-home-sidebar') ): ?> class="main-content col-md-6" <?php else: ?> class="main-content col-md-8"<?php endif; ?>>
-
-<?php if (get_theme_mod('socialmag_slider_setting', 1) != 0 & is_front_page() & !is_paged()): ?>
+	
+<?php if (get_theme_mod('socialmag_slider_setting', 0) != 0 & is_front_page() & !is_paged()): ?>
 	<!-- get slider template and content -->
 	<?php include_once( get_parent_theme_file_path('/parts/content-slider.php') ); ?>
 <?php else: ?>
@@ -26,8 +26,7 @@ defined('ABSPATH') or die("please don't run scripts");
 	<?php endif; ?>
 			
 	<?php if (get_theme_mod( 'socialmag_masonry_post_grid_setting', 0 ) != 1): ?>
-		<div class="grid-wrap fade">
-			<div id="grid" data-columns>
+		<div class="socialmag-grid fade">
 	<?php else: ?>
 			<div class="posts-wrap">
 	<?php endif; ?>
@@ -40,7 +39,7 @@ defined('ABSPATH') or die("please don't run scripts");
 	<?php if ($the_query->have_posts()) : ?>
 	<?php while ($the_query->have_posts()) : $the_query->the_post(); ?>
 	
-	<article <?php post_class(); ?>>
+	<article <?php if (get_theme_mod( 'socialmag_masonry_post_grid_setting', 0 ) != 1): ?>class="grid-item"<?php endif; ?>>
 	<?php get_template_part('parts/content', get_post_format()); ?>
 	</article>
 	     
@@ -50,15 +49,11 @@ defined('ABSPATH') or die("please don't run scripts");
 					
 	<?php endif; ?>
 	
-	<?php if (get_theme_mod( 'socialmag_masonry_post_grid_setting', 0 ) != 1): ?>
-	</div><!-- #grid -->
-	<?php endif; ?>
-	
 	<?php the_posts_pagination( array(
-		'mid_size'  => 3,
+		'mid_size'  => 2,
 		'prev_text' => esc_html__( 'Previous', 'socialmag' ),
 		'next_text' => esc_html__( 'Next', 'socialmag' ),
 	) ); ?>
-		
+	
 	</div><!-- grid-wrap -->
-</div><!-- #front-layout / col-md-8 -->
+</div><!-- #front-layout flex-container -->

@@ -8,10 +8,10 @@ defined('ABSPATH') or die("please don't run scripts");
 <div <?php post_class('content-wrap grid-post'); ?>>
 					 
 	<?php if ( has_post_thumbnail() ): ?>
-	<?php if ( ! is_single() ): ?>
-		<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('socialmag-standard'); ?></a>
+	<?php if ( is_front_page() && get_theme_mod('socialmag_masonry_post_grid_setting') != 1 ): ?>
+		<a href="<?php the_permalink() ?>"><?php the_post_thumbnail(); ?></a>
 	<?php else: ?>
-		<?php the_post_thumbnail('socialmag-standard'); ?>
+		<a href="<?php the_permalink() ?>"><?php the_post_thumbnail('socialmag-standard'); ?><a href="<?php the_permalink() ?>">
 	<?php endif; ?>
 	<?php endif; ?>
 	
