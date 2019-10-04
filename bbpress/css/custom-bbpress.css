@@ -1,0 +1,94 @@
+button#bbp_topic_submit,
+#subscription-toggle a,
+input#bbp_search_submit {
+    background: #222;
+    color: #fff;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#subscription-toggle span,
+.bbp-breadcrumb p {
+	line-height: 40px;
+}
+#bbp-search-form {
+	margin-bottom: 20px;
+}
+div.bbp-template-notice,
+div.indicator-hint,
+div.bbp-template-notice.info {
+	border: 0px;
+	padding: 5px;
+}
+div.bbp-template-notice p,
+div.indicator-hint p,
+div.bbp-template-notice.info p {
+	font-weight: 400;
+}
+input#bbp_search_submit:hover,
+button#bbp_topic_submit:hover {
+	background: #e10b00;
+	border: 0px;
+	color: #fff;
+}
+.bbpress input {
+	border: 1px solid #eee;
+	line-height: 25px;
+}
+span#subscription-toggle {
+	float: right;
+}
+.bbpress select {
+	width: auto;
+	border: 1px solid #eee;
+	border-radius: 3px;
+	background-color: #fff;
+	appearance: none;
+	/**-webkit-appearance: none;
+	-moz-appearance: none; **/
+}
+.bbpress select option {
+	-webkit-box-shadow: 0px 44px 60px 0px rgba(0,0,0,0.11);
+    -moz-box-shadow: 0px 44px 60px 0px rgba(0,0,0,0.11);
+    box-shadow: 0px 44px 60px 0px rgba(0,0,0,0.11);
+}
+.bbpress .wp-editor-area {
+	font-family: "Montserrat", sans-serif;
+}
+#bbpress-forums textarea:focus,
+#bbpress-forums fieldset.bbp-form {
+	border: 0px;
+}
+.bbp-form legend {
+	margin-bottom: 0px;
+}
+div.bbp-submit-wrapper {
+	float: none;
+}
+#bbpress-forums div.bbp-the-content-wrapper textarea.bbp-the-content {
+	font-size: 15px;
+}
+select,
+select option {
+	font-family: inherit;
+	font-size: 15px;
+}
+@media screen and (max-width: 480px) {
+	span#subscription-toggle,
+	#subscription-toggle a {
+		width: 100%;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	input#bbp_topic_title,
+	input#bbp_topic_tags {
+		width: 100%;
+	}
+}

@@ -1,0 +1,3 @@
+<?php defined('ABSPATH') or die("please don't run scripts");
+$socialmag_theme = wp_get_theme();
+echo esc_html__('built with', 'socialmag' ); ?> <a href="<?php echo esc_url( $socialmag_theme->get( 'ThemeURI' ) ); ?>" target="_blank" title="<?php esc_attr_e('SocialMag', 'socialmag' ); ?>"><?php echo esc_html__('SocialMag', 'socialmag' ); ?></a> <?php echo esc_html__('and', 'socialmag' ); ?> <a href="<?php echo esc_url('https://wordpress.org/'); ?>" title="<?php esc_attr_e('WordPress', 'socialmag' ); ?>"><?php echo esc_html__('WordPress', 'socialmag' ); ?></a> 

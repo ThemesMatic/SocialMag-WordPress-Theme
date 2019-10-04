@@ -1,0 +1,73 @@
+/* Styles used on website preview
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+#grid article h2,
+#grid article h2 a,
+.social-network-links a .fa,
+h1.intro-main-text, .intro-main-text,
+.masthead a.site-title,
+footer a.site-title,
+article p,
+.masthead a.site-title:hover,
+.masthead ul.top-menu > li > a:hover,
+.masthead ul.create-menu > li > a:hover,
+.masthead i.search-icon:hover,
+.masthead .create-menu li a:hover {
+	-webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-custom_header {
+	top: -150px !important;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-header_image {
+	top: 150px !important;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_one,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_two,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_three,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_four,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_five,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_six,
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-socialmag_social_icon_seven {
+	position: relative;
+    top: 20px !important;
+    left: 28px !important;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-blogdescription button {
+	bottom: 40px !important;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-blogdescription {
+	top: -15px !important;
+    position: relative !important;
+}
+.customize-partial-edit-shortcut.customize-partial-edit-shortcut-slider_setting {
+	top: 50px;
+}
+a.featured-button:hover,
+.carousel-caption h2 a:hover {
+	color: #fff !important;
+}
+.sidebar{
+	overflow: visible;
+}
+span.customize-partial-edit-shortcut-socialmag_show_panel_one,
+span.customize-partial-edit-shortcut-socialmag_show_panel_two,
+span.customize-partial-edit-shortcut-socialmag_show_panel_three,
+span.customize-partial-edit-shortcut-socialmag_show_panel_four,
+span.customize-partial-edit-shortcut-socialmag_show_panel_five,
+span.customize-partial-edit-shortcut-socialmag_show_panel_six,
+span.customize-partial-edit-shortcut-socialmag_show_panel_seven {
+	left: 0;
+}
+span.customize-partial-edit-shortcut-socialmag_panel_one_background_url,
+span.customize-partial-edit-shortcut-socialmag_panel_four_background_url,
+span.customize-partial-edit-shortcut-socialmag_panel_six_background_url {
+	margin-top: -350px;
+}

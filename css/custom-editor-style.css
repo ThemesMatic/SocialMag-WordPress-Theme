@@ -1,0 +1,6 @@
+html .mceContentBody {
+	background: #fff;
+	max-width: 600px;
+	margin: 20px;
+	font-weight: 400;
+}

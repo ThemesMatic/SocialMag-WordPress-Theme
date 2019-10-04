@@ -1,0 +1,129 @@
+h3.socialmag-divider-label {
+	text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    padding: 10px;
+    border: 1px solid;
+}
+.customize-control-checkbox label {
+	font-weight: bold;
+}
+#customize-control-socialmag_second_slider_image_setting,
+#customize-control-socialmag_third_slider_image_setting {
+	padding-top: 10px;
+}
+#accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title,
+#accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title:hover,
+#customize-theme-controls #accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title:focus {
+    color: #fff;
+    background-color: #1b478f;
+}
+#customize-theme-controls #accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title:after {
+	color: #fff;
+}
+#customize-theme-controls #accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title {
+	border-left: 4px solid #1b478f;
+}
+#accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title:hover {
+    color: #fff!important;
+    background-color: #1a4183!important;
+    border-left: 4px solid #1a4183 !important;
+}
+#customize-theme-controls #accordion-section-socialmag_themesmatic_upsell_panel .accordion-section-title:hover:after {
+	color: #fff;
+}
+.socialmag_themesmatic_upsell_panel_content h1,
+.socialmag_themesmatic_upsell_panel_content h2,
+.socialmag_themesmatic_upsell_panel_content h3,
+.socialmag_themesmatic_upsell_panel_content p {
+    color: #333!important
+}
+.socialmag_themesmatic_upsell_panel_content h1 {
+	font-size: 28px;
+}
+#sub-accordion-section-socialmag_sharing_section .customize-control-radio {
+    padding: 0px;
+}
+input[type=radio] {
+    display: none
+}
+.customize-control-radio label {
+    padding: 15px;
+    margin: 5px 0;
+    display: inline-block;
+    font-weight: 700
+}
+.customize-control-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #222;
+}
+.wp-color-result {
+    height: 50px;
+}
+#customize-controls .customize-info .customize-panel-description,
+#customize-controls .no-widget-areas-rendered-notice {
+    font-size: 15px
+}
+.customize-control-radio label {
+	border: 1px solid #fff;
+}
+.customize-control-radio label.active-control {
+	background-color: #fff;
+}
+.socialmag_themesmatic_upsell_panel_content {
+	background: #fff;
+	border-radius: 3px;
+	text-align: center;
+}
+ul.socialmag-themesmatic-panel-list {
+	padding: 20px 0 0 15px;
+}
+ul.socialmag-themesmatic-panel-list li {
+	text-align: left;
+	font-size: 13px;
+	line-height: 30px;
+}
+.socialmag_themesmatic_upsell_panel_content h1 {
+	font-weight: bold;
+}
+a.pro-button {
+	color: #fff;
+	background: #333;
+	display: block;
+	width: 80%;
+	font-size: 15px;
+	text-align: center;
+	padding: 20px 15px;
+	margin: 15px auto;
+	text-decoration: none;
+	border-radius: 35px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+
+}
+a.pro-button:hover {
+	background: #1b478f;
+}
+.socialmag-rating {
+	padding: 20px 0 50px 0;
+}
+/*
+* Customizer Panel Display Fixes for WP 4.9 update
+/*********************************************/
+#customize-control-socialmag_header_choices .customize-inside-control-row,
+#customize-control-themesmatic_social_sharing_position .customize-inside-control-row,
+#customize-control-themesmatic_social_sharing_colors .customize-inside-control-row,
+#customize-control-themesmatic_social_sharing_shape .customize-inside-control-row,
+#customize-control-socialmag_grid_choice_setting .customize-inside-control-row,
+#customize-control-socialmag_icons_position .customize-inside-control-row,
+#customize-control-show_on_front .customize-inside-control-row {
+    display: inline;
+    margin-left: 0px;
+}
+input[type="radio"]:checked + label {
+	background: #fff;
+}

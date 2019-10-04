@@ -1,0 +1,32 @@
+#buddypress div#message p, #sitewide-notice p {
+	background-color: #eee;
+	border: 1px solid #ccc;
+}
+#buddypress table.profile-fields tr td {
+	display: inline-block;
+}
+#buddypress #whats-new:focus {
+	border-color: #999 !important;
+	outline-color: #999;
+}
+#subscription-toggle a,
+#buddypress input[type="submit"] {
+    background: #222;
+    color: #fff;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px 30px;
+    -webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+#subscription-toggle a:hover,
+#buddypress input[type="submit"]:hover {
+	background: #e10b00;
+	border: 0px;
+	color: #fff;
+}
